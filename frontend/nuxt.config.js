@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 export default {
   mode: 'spa',
   /*
@@ -14,7 +16,12 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      {
+        src: `https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_MAP_API_KEY}`
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -35,7 +42,8 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/proxy',
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/dotenv'
   ],
   /*
    ** Axios module configuration

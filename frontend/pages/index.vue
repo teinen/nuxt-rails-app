@@ -1,20 +1,37 @@
 <template>
-  <div class="container">
-    <div>Orders: {{ orders }}</div>
+  <div>
+    <div id="map"></div>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+const data = function() {
+  return {
+    google: window.google,
+    map: undefined
+  }
+}
 
-const computed = {
-  ...mapState(['orders'])
+const computed = {}
+
+const methods = {
+  initializeMap() {}
 }
 
 const component = {
+  data,
   computed,
-  created() {
-    this.$store.dispatch('getOrders')
+  methods,
+  mounted() {
+    const mapMountEl = document.getElementById('map')
+    const { Map } = window.google.maps
+    /* eslint no-console: 0 */
+    console.log(process.env.GOOGLE_MAP_API_KEY)
+
+    this.map = new Map(mapMountEl, {
+      center: { lat: -34.397, lng: 150.644 },
+      zoom: 8
+    })
   }
 }
 
@@ -22,34 +39,8 @@ export default component
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+#map {
+  height: 100vh;
+  width: 100vw;
 }
 </style>
