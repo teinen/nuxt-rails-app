@@ -1,24 +1,35 @@
-# README
+# Nuxt.js + Rails application sample
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Versions
 
-Things you may want to cover:
+- Nuxt.js 2.8.1
+- Rails 5.2.3
+- Ruby 2.6.3
+- Mysql 5.7.25
 
-* Ruby version
+## Setup
 
-* System dependencies
+```bash
+# API
+$ cd nuxt-rails-app
+$ bundle install
+$ bin/rails db:create
+$ bin/rails s -p8080
 
-* Configuration
+# frontend
+$ cd frontent/
+$ npm run dev # you can access localhost:3000
+```
 
-* Database creation
+# env
 
-* Database initialization
+```bash
+$ cd frontend/
+$ touch .env
+```
 
-* How to run the test suite
+You have to add `GOOGLE_MAP_API_KEY` to `.env` file.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+GOOGLE_MAP_API_KEY=*****************
+```
