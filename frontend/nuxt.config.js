@@ -34,6 +34,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
     '@nuxtjs/eslint-module'
   ],
   /*
@@ -41,6 +42,11 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
+  proxy: {
+    '/api': {
+      target: 'http://localhost:8080'
+    }
+  },
   /*
    ** Build configuration
    */

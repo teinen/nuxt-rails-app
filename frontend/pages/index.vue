@@ -1,36 +1,24 @@
 <template>
   <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        frontend
-      </h1>
-      <h2 class="subtitle">
-        Frontend for rails application
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green"
-          >Documentation</a
-        >
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-          >GitHub</a
-        >
-      </div>
-    </div>
+    <div>Orders: {{ orders }}</div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import { mapState } from 'vuex'
 
-export default {
-  components: {
-    Logo
+const computed = {
+  ...mapState(['orders'])
+}
+
+const component = {
+  computed,
+  created() {
+    this.$store.dispatch('getOrders')
   }
 }
+
+export default component
 </script>
 
 <style>
