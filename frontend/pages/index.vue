@@ -29,8 +29,8 @@ const component = {
     console.log(process.env.GOOGLE_MAP_API_KEY)
 
     this.map = new Map(mapMountEl, {
-      center: { lat: -34.397, lng: 150.644 },
-      zoom: 8
+      center: { lat: 38.681, lng: 139.767 },
+      zoom: 6
     })
   }
 }
