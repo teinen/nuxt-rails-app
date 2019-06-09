@@ -1,11 +1,16 @@
-import { ENDPOINTS } from '~/store/api'
+import { ENDPOINTS } from '~/store/api.ts'
+import Order from '~/models/Order'
 
-export const state = () => ({
+interface State {
+  orders: Array<Order>
+}
+
+export const state: State = {
   orders: []
-})
+}
 
 export const mutations = {
-  setOrders(state, payload) {
+  setOrders(state: State, payload): void {
     state.orders = payload.orders
   }
 }
