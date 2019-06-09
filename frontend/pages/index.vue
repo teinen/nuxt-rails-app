@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import Vue from 'vue'
 
 declare global {
   interface Window {
@@ -13,10 +13,12 @@ declare global {
   }
 }
 
-@Component
-export default class Index extends Vue {
-  map: any = undefined
-
+export default Vue.extend({
+  data() {
+    return {
+      map: undefined
+    }
+  },
   mounted(): void {
     const mapMountEl = document.getElementById('map')
 
@@ -26,7 +28,7 @@ export default class Index extends Vue {
       zoom: 6
     })
   }
-}
+})
 </script>
 
 <style>
