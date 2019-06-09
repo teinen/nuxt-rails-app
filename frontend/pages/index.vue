@@ -25,9 +25,6 @@ const component = {
   mounted() {
     const mapMountEl = document.getElementById('map')
     const { Map } = window.google.maps
-    /* eslint no-console: 0 */
-    console.log(process.env.GOOGLE_MAP_API_KEY)
-
     this.map = new Map(mapMountEl, {
       center: { lat: 38.681, lng: 139.767 },
       zoom: 6
