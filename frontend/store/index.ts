@@ -16,8 +16,8 @@ export const mutations = {
 }
 
 export const actions = {
-  async getOrders({ commit }) {
-    const response = await this.$axios.$get(ENDPOINTS.ORDERS)
+  async getOrders({ commit, app }) {
+    const response = await app.$axios.$get(ENDPOINTS.ORDERS)
 
     if (!response.data) {
       throw new Error()
